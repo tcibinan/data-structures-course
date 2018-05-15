@@ -30,7 +30,7 @@ object IntSetSpec : Spek({
 
             it("should contain all given values") {
                 values.forEach {
-                    assertTrue { set.contains(it) }
+                    assertTrue("set should contain $it") { set.contains(it) }
                 }
             }
         }
@@ -41,15 +41,13 @@ object IntSetSpec : Spek({
 
             values.forEach { set.add(it) }
 
-            it("should contain all given values") {
-                values.forEach {
-                    assertTrue { set.contains(it) }
-                }
+            it("should have size equals to a number of given values") {
+                assertEquals(values.size, set.size())
             }
 
-            it("should have size equals to a number of given values") {
+            it("should contain all given values") {
                 values.forEach {
-                    assertTrue { set.contains(it) }
+                    assertTrue("set should contain $it") { set.contains(it) }
                 }
             }
         }
@@ -68,13 +66,13 @@ object IntSetSpec : Spek({
 
             it("should not contain removed elements") {
                 removedElements.forEach {
-                    assertFalse { set.contains(it) }
+                    assertFalse("set should not contain $it") { set.contains(it) }
                 }
             }
 
             it("should still contain non-removed elements") {
                 remainedElements.forEach {
-                    assertTrue { set.contains(it) }
+                    assertTrue("set should contain $it") { set.contains(it) }
                 }
             }
         }
@@ -91,7 +89,7 @@ object IntSetSpec : Spek({
                 mainSetValues.plus(otherSetValues)
                         .toSet()
                         .forEach {
-                            assertTrue { unionSet.contains(it) }
+                            assertTrue("set should contain $it") { unionSet.contains(it) }
                         }
             }
         }
@@ -107,7 +105,7 @@ object IntSetSpec : Spek({
             it("should return a set that contains elements which are presented in both sets") {
                 mainSetValues.intersect(otherSetValues.toSet())
                         .forEach {
-                            assertTrue { intersectionSet.contains(it) }
+                            assertTrue("set should contain $it") { intersectionSet.contains(it) }
                         }
             }
         }
@@ -118,13 +116,13 @@ object IntSetSpec : Spek({
             val mainSet = IntSet.of(*mainSetValues)
             val otherSet = IntSet.of(*otherSetValues)
 
-            val differenceSet = mainSet.intersection(otherSet)
+            val differenceSet = mainSet.difference(otherSet)
 
             it("should return a set that contains elements which are only presented in on the sets") {
                 mainSetValues.filterNot { otherSetValues.contains(it) }
                         .plus(otherSetValues.filterNot { mainSetValues.contains(it) })
                         .forEach {
-                            assertTrue { differenceSet.contains(it) }
+                            assertTrue("set should contain $it") { differenceSet.contains(it) }
                         }
             }
         }
@@ -140,9 +138,8 @@ object IntSetSpec : Spek({
             it("should return a set that contains elements from the first set " +
                     "which are not presented in the second one") {
                 mainSetValues.minus(otherSetValues.toSet())
-                        .plus(otherSetValues.filterNot { mainSetValues.contains(it) })
                         .forEach {
-                            assertTrue { minus.contains(it) }
+                            assertTrue("set should contain $it") { minus.contains(it) }
                         }
             }
         }
@@ -150,14 +147,20 @@ object IntSetSpec : Spek({
         on("subset checking") {
 
             it("should return return true if all elements from the first set are presented in the second one") {
-                assertTrue {
-                    IntSet.of(2, 3).isSubsetOf(IntSet.of(1, 2, 3, 4))
+                val subsetValues = intArrayOf(2, 3)
+                val parentSetValues = intArrayOf(1, 2, 3, 4)
+
+                assertTrue("set ${subsetValues.toSet()} should be subset of ${parentSetValues.toSet()}") {
+                    IntSet.of(*subsetValues).isSubsetOf(IntSet.of(*parentSetValues))
                 }
             }
 
             it("should return return false if some elements from the first set are not presented in the second one") {
-                assertFalse {
-                    IntSet.of(2, 3, 5).isSubsetOf(IntSet.of(1, 2, 3, 4))
+                val subsetValues = intArrayOf(2, 3, 5)
+                val parentSetValues = intArrayOf(1, 2, 3, 4)
+
+                assertFalse("set ${subsetValues.toSet()} should not be subset of ${parentSetValues.toSet()}") {
+                    IntSet.of(*subsetValues).isSubsetOf(IntSet.of(*parentSetValues))
                 }
             }
         }

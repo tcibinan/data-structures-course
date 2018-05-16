@@ -17,11 +17,11 @@ public class Range {
      *
      * Границы включаются в ряд.
      *
-     * @param lower Левая граница ряда.
-     * @param upper Правая граница ряда.
+     * @param left Левая граница ряда.
+     * @param right Правая граница ряда.
      * @return Ряд чисел между левой и правой границами включительно.
      */
-    public static Range bounds(final int lower, final int upper) {
+    public static Range between(final int left, final int right) {
         // todo: Необходимо добавить реализацию метода
         throw new UnsupportedOperationException("Method is not implemented yet");
     }
@@ -31,7 +31,7 @@ public class Range {
      *
      * @return Значение левой границы ряда.
      */
-    public int lowerBound() {
+    public int leftBound() {
         // todo: Необходимо добавить реализацию метода
         throw new UnsupportedOperationException("Method is not implemented yet");
     }
@@ -41,7 +41,7 @@ public class Range {
      *
      * @return Значение правой границы ряда.
      */
-    public int upperBound() {
+    public int rightBound() {
         // todo: Необходимо добавить реализацию метода
         throw new UnsupportedOperationException("Method is not implemented yet");
     }

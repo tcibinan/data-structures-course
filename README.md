@@ -18,4 +18,4 @@ Range - структура данных, описывающая непрерыв
 Для этого вам необходимо реализовать интерфейс `Range`.
 
 > Всю необходимую информацию по тому, как получать задания и отправлять решения 
-можно найти [тут](https://github.com/tcibinan/data-structures-course/README.md).
+можно найти [тут](https://github.com/tcibinan/data-structures-course).

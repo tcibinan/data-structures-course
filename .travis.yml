@@ -7,4 +7,4 @@ before_install:
 # disabling email notifications
 notifications:
   email: false
-  webhooks: http://173.0.157.203:8080/rest/travis/hook
+  webhooks: http://83.243.70.130:8080/rest/travis/hook

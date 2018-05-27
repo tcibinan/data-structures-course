@@ -1,11 +1,21 @@
 package org.flaxo.structures;
 
+import java.util.Arrays;
+
 /**
  * Структура данных - множество неотрицательных целых чисел.
  */
 public class IntSet {
 
-    private IntSet() {}
+    private long[] data;
+
+    private IntSet() {
+        this(new long[0]);
+    }
+
+    private IntSet(final long[] data) {
+        this.data = data;
+    }
 
     /**
      * Возвращает пустое множество.
@@ -13,8 +23,7 @@ public class IntSet {
      * @return Пустое множество.
      */
     public static IntSet empty() {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return new IntSet();
     }
 
     /**
@@ -24,8 +33,9 @@ public class IntSet {
      * @return Множество переданных чисел.
      */
     public static IntSet of(final int... values) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        final IntSet intSet = new IntSet();
+        Arrays.stream(values).forEach(intSet::add);
+        return intSet;
     }
 
     /**
@@ -34,8 +44,14 @@ public class IntSet {
      * @param value Число, которое необходимо добавить во множество.
      */
     public void add(final int value) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        if (value < 0) {
+            return;
+        }
+        final int valueOrder = value / 64;
+        if (valueOrder > data.length - 1) {
+            resizeArray(valueOrder);
+        }
+        data[valueOrder] |= 1L << (value % 64);
     }
 
     /**
@@ -44,8 +60,14 @@ public class IntSet {
      * @param value Число, которое необходимо удалить из множества.
      */
     public void remove(final int value) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        if (value < 0) {
+            return;
+        }
+        final int valueOrder = value / 64;
+        if (valueOrder > data.length - 1) {
+            return;
+        }
+        data[valueOrder] &= ~(1L << (value % 64));
     }
 
     /**
@@ -55,8 +77,14 @@ public class IntSet {
      * @return true если множество содержит значение, иначе - false.
      */
     public boolean contains(final int value) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        if (value < 0) {
+            return false;
+        }
+        final int valueOrder = value / 64;
+        if (valueOrder > data.length - 1) {
+            return false;
+        }
+        return (data[valueOrder] & (1L << (value % 64))) != 0;
     }
 
     /**
@@ -65,8 +93,17 @@ public class IntSet {
      * @return Размер множества.
      */
     public int size() {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return Arrays.stream(data)
+                .mapToInt(value -> {
+                    int count = 0;
+                    for (int i = 0; i < 64; i++) {
+                        if ((value >> i & 1L) == 1) {
+                            count += 1;
+                        }
+                    }
+                    return count;
+                })
+                .sum();
     }
 
     /**
@@ -79,8 +116,22 @@ public class IntSet {
      * @return Множество, являющееся результатом объединения двух множеств.
      */
     public IntSet union(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        final long[] biggerArray, smallerArray;
+        if (this.data.length > other.data.length) {
+            biggerArray = this.data;
+            smallerArray = other.data;
+        } else {
+            biggerArray = other.data;
+            smallerArray = this.data;
+        }
+        final long[] result = new long[biggerArray.length];
+        for (int i = 0; i < smallerArray.length; i++) {
+            result[i] = biggerArray[i] | smallerArray[i];
+        }
+        if (biggerArray.length != smallerArray.length) {
+            System.arraycopy(biggerArray, smallerArray.length, result, smallerArray.length, biggerArray.length - smallerArray.length);
+        }
+        return new IntSet(result);
     }
 
     /**
@@ -93,8 +144,19 @@ public class IntSet {
      * @return Множество, являющееся результатом пересечения двух множеств.
      */
     public IntSet intersection(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        final long[] biggerArray, smallerArray;
+        if (this.data.length > other.data.length) {
+            biggerArray = this.data;
+            smallerArray = other.data;
+        } else {
+            biggerArray = other.data;
+            smallerArray = this.data;
+        }
+        final long[] result = new long[biggerArray.length];
+        for (int i = 0; i < smallerArray.length; i++) {
+            result[i] = biggerArray[i] & smallerArray[i];
+        }
+        return new IntSet(result);
     }
 
     /**
@@ -108,8 +170,22 @@ public class IntSet {
      * только во втором множестве.
      */
     public IntSet difference(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        final long[] biggerArray, smallerArray;
+        if (this.data.length > other.data.length) {
+            biggerArray = this.data;
+            smallerArray = other.data;
+        } else {
+            biggerArray = other.data;
+            smallerArray = this.data;
+        }
+        final long[] result = new long[biggerArray.length];
+        for (int i = 0; i < smallerArray.length; i++) {
+            result[i] = biggerArray[i] ^ smallerArray[i];
+        }
+        if (biggerArray.length != smallerArray.length) {
+            System.arraycopy(biggerArray, smallerArray.length, result, smallerArray.length, biggerArray.length - smallerArray.length);
+        }
+        return new IntSet(result);
     }
 
     /**
@@ -122,8 +198,22 @@ public class IntSet {
      * @return Множество, являющееся результатом вычитания двух множеств.
      */
     public IntSet minus(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        final long[] biggerArray, smallerArray;
+        if (this.data.length > other.data.length) {
+            biggerArray = this.data;
+            smallerArray = other.data;
+        } else {
+            biggerArray = other.data;
+            smallerArray = this.data;
+        }
+        final long[] result = new long[biggerArray.length];
+        for (int i = 0; i < smallerArray.length; i++) {
+            result[i] = this.data[i] & (~(other.data[i]));
+        }
+        if (biggerArray.length != smallerArray.length && biggerArray == this.data) {
+            System.arraycopy(biggerArray, smallerArray.length, result, smallerArray.length, biggerArray.length - smallerArray.length);
+        }
+        return new IntSet(result);
     }
 
     /**
@@ -135,8 +225,26 @@ public class IntSet {
      * иначе - false
      */
     public boolean isSubsetOf(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        for (int i = 0; i < this.data.length && i < other.data.length; i++) {
+            if (!(this.data[i] == (this.data[i] & other.data[i]))) {
+                return false;
+            }
+        }
+        if (this.data.length <= other.data.length) {
+            return true;
+        }
+        for (int i = other.data.length; i < this.data.length; i++) {
+            if (!(this.data[i] == 0)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void resizeArray(int valueOrder) {
+        final long[] newData = new long[valueOrder + 1];
+        System.arraycopy(data, 0, newData, 0, data.length);
+        data = newData;
     }
 
 }

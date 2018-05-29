@@ -16,7 +16,7 @@ public class Range {
     private Range() {}
 
     public Range(int left, int right){
-        if(left<right) {
+        if(left<=right) {
             this.left = left;
             this.right = right;
         }

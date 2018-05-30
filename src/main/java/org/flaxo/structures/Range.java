@@ -10,8 +10,8 @@ import java.util.List;
  * Левая и правая границы - включительны.
  */
 public class Range {
-    static int left;
-    static int right;
+    int left;
+    int right;
 
     private Range(int left, int right) {
        if (left > right)
@@ -21,8 +21,8 @@ public class Range {
     }
     private List rng() {
     ArrayList<Integer> rng = new ArrayList<>(right-left+1);
-        int k=left;
-        while (k<=right) {rng.add(k++); }
+        int k=this.left;
+        while (k<=this.right) {rng.add(k++); }
         return rng;
     }
 
@@ -37,9 +37,7 @@ public class Range {
      */
     public static Range between(final int left, final int right) {
         // todo: Необходимо добавить реализацию метода
-
-            Range range = new Range(left, right);
-        return range;
+        return new Range(left, right);
         //throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
@@ -50,7 +48,7 @@ public class Range {
      */
     public int leftBound() {
         // todo: Необходимо добавить реализацию метода
-        return left;
+        return this.left;
         //throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
@@ -61,7 +59,7 @@ public class Range {
      */
     public int rightBound() {
         // todo: Необходимо добавить реализацию метода
-        return right;
+        return this.right;
         //throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
@@ -74,7 +72,7 @@ public class Range {
      */
     public boolean isBefore(final Range other) {
         // todo: Необходимо добавить реализацию метода
-       return other.leftBound()>right;
+       return other.leftBound()>this.right;
        // throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
@@ -87,7 +85,7 @@ public class Range {
      */
     public boolean isAfter(final Range other) {
         // todo: Необходимо добавить реализацию метода
-        return left > other.rightBound();
+        return this.left > other.rightBound();
         //throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
@@ -101,8 +99,7 @@ public class Range {
      */
     public boolean isConcurrent(final Range other) {
         // todo: Необходимо добавить реализацию метода
-        if (left>=other.rightBound() || this.rightBound()<=other.leftBound()) return true;
-        else return false;
+       return !this.isAfter(other) && !this.isBefore(other) && (other.leftBound()<=this.left || other.rightBound()>=this.rightBound());
        // throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
@@ -115,8 +112,7 @@ public class Range {
      */
     public boolean contains(final int value) {
         // todo: Необходимо добавить реализацию метода
-        if (left <= value && right >= value) return true;
-        else return false;
+        return this.left <= value && this.right >= value;
        // throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
@@ -127,7 +123,7 @@ public class Range {
      *
      * @return Список чисел, входящих в ряд.
      */
-    public List<Integer> asList() {
+    public List asList() {
         // todo: Необходимо добавить реализацию метода
         return rng();
       //  throw new UnsupportedOperationException("Method is not implemented yet");
@@ -140,9 +136,8 @@ public class Range {
      *
      * @return Итератор по числам, входящим в ряд
      */
-    public Iterator<Integer> asIterator() {
-        Iterator it =rng().iterator();
-        return it;
+    public Iterator asIterator() {
+        return rng().iterator();
         // todo: Необходимо добавить реализацию метода
     //    throw new UnsupportedOperationException("Method is not implemented yet");
     }

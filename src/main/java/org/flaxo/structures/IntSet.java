@@ -1,11 +1,21 @@
 package org.flaxo.structures;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Структура данных - множество неотрицательных целых чисел.
  */
 public class IntSet {
+    private final Set<Integer> set;
 
-    private IntSet() {}
+    private IntSet() {
+        set = new HashSet<>();
+    }
+
+    private IntSet(Set<Integer> set) {
+        this.set = set;
+    }
 
     /**
      * Возвращает пустое множество.
@@ -13,8 +23,7 @@ public class IntSet {
      * @return Пустое множество.
      */
     public static IntSet empty() {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return new IntSet();
     }
 
     /**
@@ -24,8 +33,11 @@ public class IntSet {
      * @return Множество переданных чисел.
      */
     public static IntSet of(final int... values) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        Set<Integer> tempSet = new HashSet<>();
+        for (int i : values)
+            tempSet.add(i);
+
+        return new IntSet(tempSet);
     }
 
     /**
@@ -34,8 +46,7 @@ public class IntSet {
      * @param value Число, которое необходимо добавить во множество.
      */
     public void add(final int value) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        set.add(value);
     }
 
     /**
@@ -44,8 +55,7 @@ public class IntSet {
      * @param value Число, которое необходимо удалить из множества.
      */
     public void remove(final int value) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        set.remove(value);
     }
 
     /**
@@ -55,8 +65,7 @@ public class IntSet {
      * @return true если множество содержит значение, иначе - false.
      */
     public boolean contains(final int value) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return set.contains(value);
     }
 
     /**
@@ -65,42 +74,45 @@ public class IntSet {
      * @return Размер множества.
      */
     public int size() {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return set.size();
     }
 
     /**
      * Возвращает множество всех элементов текущего
      * и переданного множеств.
-     *
+     * <p>
      * Операция объединения множеств.
      *
      * @param other Множество, с которым необходимо провести операцию объединения.
      * @return Множество, являющееся результатом объединения двух множеств.
      */
     public IntSet union(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        Set<Integer> tempSet = new HashSet<>(this.set);
+        tempSet.addAll(other.set);
+
+        return new IntSet(tempSet);
     }
 
     /**
      * Возвращает множество общих элементов текущего
      * и переданного множеств.
-     *
+     * <p>
      * Операция пересечения множеств.
      *
      * @param other Множество, с которым необходимо провести операцию пересечения.
      * @return Множество, являющееся результатом пересечения двух множеств.
      */
     public IntSet intersection(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        Set<Integer> tempSet = new HashSet<>(this.set);
+        tempSet.retainAll(other.set);
+
+        return new IntSet(tempSet);
     }
 
     /**
      * Возвращает множество уникальных элементов текущего
      * и переданного множеств.
-     *
+     * <p>
      * Операция исключающего ИЛИ над множествами.
      *
      * @param other Множество, с которым необходимо провести данную операцию.
@@ -108,22 +120,23 @@ public class IntSet {
      * только во втором множестве.
      */
     public IntSet difference(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return union(other).minus(intersection(other));
     }
 
     /**
      * Возвращает множество элементов текущего множества,
      * которых нет в переданном множестве.
-     *
+     * <p>
      * Операция вычитания множеств.
      *
      * @param other Множество, которое необходимо вычесть из текущего.
      * @return Множество, являющееся результатом вычитания двух множеств.
      */
     public IntSet minus(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        Set<Integer> tempSet = new HashSet<>(this.set);
+        tempSet.removeAll(other.set);
+
+        return new IntSet(tempSet);
     }
 
     /**
@@ -135,8 +148,6 @@ public class IntSet {
      * иначе - false
      */
     public boolean isSubsetOf(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return other.set.containsAll(this.set);
     }
-
 }

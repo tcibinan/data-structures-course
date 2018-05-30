@@ -1,5 +1,6 @@
 package org.flaxo.structures;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -9,8 +10,21 @@ import java.util.List;
  * Левая и правая границы - включительны.
  */
 public class Range {
+    int left;
+    int right;
 
-    private Range() {}
+    private Range(int left, int right) {
+       if (left > right)
+       throw new IllegalArgumentException("Lower bound is greater then upper bound");
+        this.left = left;
+        this.right = right;
+    }
+    private List rng() {
+    ArrayList<Integer> rng = new ArrayList<>(right-left+1);
+        int k=this.left;
+        while (k<=this.right) {rng.add(k++); }
+        return rng;
+    }
 
     /**
      * Возвращает ряд чисел между переданными левой и правой границами.
@@ -23,7 +37,8 @@ public class Range {
      */
     public static Range between(final int left, final int right) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return new Range(left, right);
+        //throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
     /**
@@ -33,7 +48,8 @@ public class Range {
      */
     public int leftBound() {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return this.left;
+        //throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
     /**
@@ -43,7 +59,8 @@ public class Range {
      */
     public int rightBound() {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return this.right;
+        //throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
     /**
@@ -55,7 +72,8 @@ public class Range {
      */
     public boolean isBefore(final Range other) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+       return other.leftBound()>this.right;
+       // throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
     /**
@@ -67,7 +85,8 @@ public class Range {
      */
     public boolean isAfter(final Range other) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return this.left > other.rightBound();
+        //throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
     /**
@@ -80,7 +99,8 @@ public class Range {
      */
     public boolean isConcurrent(final Range other) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+       return !this.isAfter(other) && !this.isBefore(other) && (other.leftBound()<=this.left || other.rightBound()>=this.rightBound());
+       // throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
     /**
@@ -92,7 +112,8 @@ public class Range {
      */
     public boolean contains(final int value) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return this.left <= value && this.right >= value;
+       // throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
     /**
@@ -102,9 +123,10 @@ public class Range {
      *
      * @return Список чисел, входящих в ряд.
      */
-    public List<Integer> asList() {
+    public List asList() {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return rng();
+      //  throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
     /**
@@ -114,8 +136,9 @@ public class Range {
      *
      * @return Итератор по числам, входящим в ряд
      */
-    public Iterator<Integer> asIterator() {
+    public Iterator asIterator() {
+        return rng().iterator();
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+    //    throw new UnsupportedOperationException("Method is not implemented yet");
     }
 }

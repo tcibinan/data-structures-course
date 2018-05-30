@@ -15,7 +15,7 @@ public class Range {
 
 
 
-    private Range(int leftBound,int rightBound) {
+    private Range(final int leftBound,final int rightBound) {
         if(leftBound > rightBound){
             throw new IllegalArgumentException("lower bound is higher than upper bound");}
 
@@ -67,14 +67,14 @@ public class Range {
 
     public boolean isConcurrent(final Range other) {
 
-        return (this.leftBound() == other.leftBound() && this.rightBound() == other.rightBound());
+        return this.leftBound() == other.leftBound() && this.rightBound() == other.rightBound();
     }
 
 
 
     public boolean contains(final int value) {
 
-        return (this.leftBound()<=value && this.rightBound()>=value);
+        return this.leftBound()<=value && this.rightBound()>=value;
     }
 
 

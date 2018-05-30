@@ -9,6 +9,8 @@ public class Range {
     private int leftBound;
     private int rightBound;
 
+    private Range() {}
+
     private Range(int leftBound,int rightBound) {
         this.leftBound = leftBound;
         this.rightBound = rightBound;
@@ -16,19 +18,19 @@ public class Range {
     }
 
     public static Range between(final int left, final int right) {
-        if (left>=leftBound && right<=rightBound) {return new Range(left,right);}
+         return new Range(left,right);
     }
 
 
 
 
     public int leftBound() {
-        return leftBound;
+        return this.leftBound;
     }
 
 
     public int rightBound() {
-        return rightBound;
+        return this.rightBound;
     }
 
 
@@ -53,8 +55,7 @@ public class Range {
 
 
     public List<Integer> asList() {
-        ArrayList<int> list;
-        list = new ArrayList<>();
+        ArrayList<int> list = new ArrayList<>(this.right -this.left + 1);
         for (int i = this.leftBound(); i <= this.rightBound(); i++) {
             list.add(i);
         }

@@ -10,6 +10,14 @@ import java.util.List;
  */
 public class Range {
 
+    private int left;
+    private int right;
+
+    private Range(int left, int right) {
+        this.left = left;
+        this.right = right;
+    }
+
     private Range() {}
 
     /**
@@ -23,7 +31,9 @@ public class Range {
      */
     public static Range between(final int left, final int right) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        //
+        if(left<=right) return new Range(left,right);
+        throw new UnsupportedOperationException("Left border is above right border");
     }
 
     /**

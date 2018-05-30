@@ -10,8 +10,9 @@ public class Range {
     private int rightBound;
 
     private Range(int leftBound,int rightBound) {
-        this.leftBound=leftBound;
-        this.rightBound=rightBound;
+        this.leftBound = leftBound;
+        this.rightBound = rightBound;
+
     }
 
     public static Range between(final int left, final int right) {

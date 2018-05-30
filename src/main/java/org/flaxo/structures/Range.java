@@ -36,7 +36,6 @@ public class Range {
     public static Range between(final int left, final int right) {
         return new Range(left, right);
     }
-
     /**
      * Возвращает значение левой границы ряда.
      *

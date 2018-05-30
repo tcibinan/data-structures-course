@@ -16,15 +16,17 @@ public class Range {
 
 
     private Range(int leftBound,int rightBound) {
+        if(leftBound > rightBound){
+            throw new IllegalArgumentException("lower bound is higher than upper bound");}
 
         this.leftBound = leftBound;
         this.rightBound = rightBound;
 
     }
 
-    public static Range between(final int left, final int right) {
+    public static Range between( int leftBound, final int rightBound) {
 
-        return new Range(left,right);
+        return new Range(leftBound,rightBound);
     }
 
 

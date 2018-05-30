@@ -5,10 +5,13 @@ import java.util.ArrayList;
 
 
 public class Range {
+
+    private Range() {}
+
     private int leftBound;
     private int rightBound;
 
-    private Range() {}
+
 
 
 
@@ -46,7 +49,7 @@ public class Range {
 
     public boolean isBefore(final Range other) {
 
-        return this.rightBound() < other.leftBound();
+        return this.rightBound < other.leftBound;
     }
 
 
@@ -54,7 +57,7 @@ public class Range {
 
     public boolean isAfter(final Range other) {
 
-        return this.leftBound() > other.rightBound();
+        return this.leftBound > other.rightBound;
     }
 
 
@@ -90,6 +93,6 @@ public class Range {
 
 
     public Iterator<Integer> asIterator() {
-        return asList().iterator();
+        return this.asList().iterator();
     }
 }

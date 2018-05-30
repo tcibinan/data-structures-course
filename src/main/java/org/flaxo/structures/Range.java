@@ -6,27 +6,30 @@ import java.util.ArrayList;
 
 public class Range {
 
+
+
+
+    private int right;
+    private int left;
+
     private Range() {}
 
-    private int leftBound;
-    private int rightBound;
 
 
 
 
-
-    private Range(final int leftBound,final int rightBound) {
-        if(leftBound > rightBound){
+    private Range(final int left,final int right) {
+        if(left > right){
             throw new IllegalArgumentException("lower bound is higher than upper bound");}
 
-        this.leftBound = leftBound;
-        this.rightBound = rightBound;
+        this.left = left;
+        this.right = right;
 
     }
 
-    public static Range between( int leftBound, final int rightBound) {
+    public static Range between(final int left, final int right) {
 
-        return new Range(leftBound,rightBound);
+        return new Range(left,right);
     }
 
 
@@ -35,7 +38,7 @@ public class Range {
 
     public int leftBound() {
 
-        return this.leftBound;
+        return this.left;
     }
 
 
@@ -43,7 +46,7 @@ public class Range {
 
     public int rightBound() {
 
-        return this.rightBound;
+        return this.right;
     }
 
 
@@ -51,7 +54,7 @@ public class Range {
 
     public boolean isBefore(final Range other) {
 
-        return this.rightBound < other.leftBound;
+        return this.right < other.left;
     }
 
 
@@ -59,7 +62,7 @@ public class Range {
 
     public boolean isAfter(final Range other) {
 
-        return this.leftBound > other.rightBound;
+        return this.left > other.right;
     }
 
 
@@ -67,14 +70,14 @@ public class Range {
 
     public boolean isConcurrent(final Range other) {
 
-        return this.leftBound() == other.leftBound() && this.rightBound() == other.rightBound();
+        return !(this.isAfter(other) || this.isBefore(other));
     }
 
 
 
     public boolean contains(final int value) {
 
-        return this.leftBound()<=value && this.rightBound()>=value;
+        return this.left<=value && this.right>=value;
     }
 
 
@@ -82,7 +85,7 @@ public class Range {
 
     public List<Integer> asList() {
 
-        List<Integer> list = new ArrayList<>(this.rightBound -this.leftBound + 1);
+        List<Integer> list = new ArrayList<>(this.right -this.left + 1);
         for (int i = this.leftBound(); i <= this.rightBound(); i++) {
             list.add(i);
         }

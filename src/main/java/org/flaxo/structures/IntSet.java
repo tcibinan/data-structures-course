@@ -7,7 +7,7 @@ import java.util.HashSet;
  * Структура данных - множество неотрицательных целых чисел.
  */
 public class IntSet {
-    HashSet<Integer> ss = new HashSet<>() { };
+    HashSet<Integer> ss = new HashSet<>() ;
     private IntSet() {}
     private IntSet(HashSet<Integer> ss) {
         this.ss = ss;

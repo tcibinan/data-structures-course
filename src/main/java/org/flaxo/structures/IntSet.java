@@ -126,7 +126,6 @@ public class IntSet {
 
 
     public IntSet difference(final IntSet other) {
-
         IntSet res = this.union(other);
         IntSet inter = this.intersection(other);
         for (int i:inter.data)

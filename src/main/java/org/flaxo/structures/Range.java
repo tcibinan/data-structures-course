@@ -20,7 +20,6 @@ public class Range {
         this.right = right;
     }
 
-
     public static Range between(final int left, final int right) {
         if (left > right)
         {
@@ -28,7 +27,6 @@ public class Range {
         }
         return new Range(left, right);
     }
-
 
     public int leftBound() {
         return this.left;

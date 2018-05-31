@@ -1,11 +1,17 @@
 package org.flaxo.structures;
 
+import java.util.HashSet;
+
+
 /**
  * Структура данных - множество неотрицательных целых чисел.
  */
 public class IntSet {
-
+    HashSet<Integer> ss = new HashSet<>() ;
     private IntSet() {}
+    private IntSet(HashSet<Integer> ss) {
+        this.ss = ss;
+    }
 
     /**
      * Возвращает пустое множество.
@@ -13,8 +19,10 @@ public class IntSet {
      * @return Пустое множество.
      */
     public static IntSet empty() {
+
+        return new IntSet();
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+      //  throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
     /**
@@ -25,7 +33,11 @@ public class IntSet {
      */
     public static IntSet of(final int... values) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        IntSet s = empty();
+        for (int i:values) {
+        s.add(i);}
+        return  s;
+       // throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
     /**
@@ -35,7 +47,8 @@ public class IntSet {
      */
     public void add(final int value) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        this.ss.add(value);
+       // throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
     /**
@@ -44,8 +57,9 @@ public class IntSet {
      * @param value Число, которое необходимо удалить из множества.
      */
     public void remove(final int value) {
+        this.ss.remove(value);
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+       // throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
     /**
@@ -56,7 +70,8 @@ public class IntSet {
      */
     public boolean contains(final int value) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        //throw new UnsupportedOperationException("Method is not implemented yet");
+        return this.ss.contains(value);
     }
 
     /**
@@ -66,7 +81,8 @@ public class IntSet {
      */
     public int size() {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+       // throw new UnsupportedOperationException("Method is not implemented yet");
+        return this.ss.size();
     }
 
     /**
@@ -80,7 +96,9 @@ public class IntSet {
      */
     public IntSet union(final IntSet other) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+       // throw new UnsupportedOperationException("Method is not implemented yet");
+        this.ss.addAll(other.ss);
+        return  new IntSet(this.ss);
     }
 
     /**
@@ -94,7 +112,11 @@ public class IntSet {
      */
     public IntSet intersection(final IntSet other) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+       // throw new UnsupportedOperationException("Method is not implemented yet");
+        IntSet interset = union(other);
+        interset.ss.retainAll(other.ss);
+        interset.ss.retainAll(this.ss);
+        return  interset;
     }
 
     /**
@@ -109,7 +131,10 @@ public class IntSet {
      */
     public IntSet difference(final IntSet other) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+       // throw new UnsupportedOperationException("Method is not implemented yet");
+        IntSet q = new IntSet(this.ss);
+
+        return minus(other).union(other.minus(q));
     }
 
     /**
@@ -123,7 +148,9 @@ public class IntSet {
      */
     public IntSet minus(final IntSet other) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+       // throw new UnsupportedOperationException("Method is not implemented yet");
+        this.ss.removeAll(other.ss);
+        return new IntSet(this.ss);
     }
 
     /**
@@ -136,7 +163,9 @@ public class IntSet {
      */
     public boolean isSubsetOf(final IntSet other) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+
+        return other.ss.containsAll(this.ss);
+       // throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
 }

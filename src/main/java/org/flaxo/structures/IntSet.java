@@ -1,7 +1,4 @@
 package org.flaxo.structures;
-
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.Union;
-
 import java.util.Arrays;
 
 /**

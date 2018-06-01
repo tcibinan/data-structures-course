@@ -2,30 +2,40 @@ package org.flaxo.structures;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Структура данных - ряд целых чисел.
  *
  * Левая и правая границы - включительны.
  */
+
 public class Range {
 
-    private Range() {}
+    private final int leftB;
+    private final int rightB;
+
+    private Range(final int leftB, final int rightB){
+        this.leftB = leftB;
+        this.rightB = rightB;
+    }
 
     /**
      * Возвращает ряд чисел между переданными левой и правой границами.
      *
      * Границы включаются в ряд.
      *
-     * @param left Левая граница ряда.
-     * @param right Правая граница ряда.
+     * @param leftB Левая граница ряда.
+     * @param rightB Правая граница ряда.
      * @return Ряд чисел между левой и правой границами включительно.
      */
-    public static Range between(final int left, final int right) {
+    public static Range between(final int leftB, final int rightB) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        //throw new UnsupportedOperationException("Method is not implemented yet");
+        if(leftB > rightB)
+            throw new IllegalArgumentException("Левое значение не может быть больше правого");
+        return new Range(leftB,rightB);
     }
-
     /**
      * Возвращает значение левой границы ряда.
      *
@@ -33,7 +43,8 @@ public class Range {
      */
     public int leftBound() {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        //throw new UnsupportedOperationException("Method is not implemented yet");
+        return leftB;
     }
 
     /**
@@ -43,7 +54,8 @@ public class Range {
      */
     public int rightBound() {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        //throw new UnsupportedOperationException("Method is not implemented yet");
+        return rightB;
     }
 
     /**
@@ -55,7 +67,8 @@ public class Range {
      */
     public boolean isBefore(final Range other) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        //throw new UnsupportedOperationException("Method is not implemented yet");
+        return this.rightB < other.leftB;
     }
 
     /**
@@ -67,7 +80,8 @@ public class Range {
      */
     public boolean isAfter(final Range other) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        //throw new UnsupportedOperationException("Method is not implemented yet");
+        return this.leftB > other.rightB;
     }
 
     /**
@@ -80,19 +94,21 @@ public class Range {
      */
     public boolean isConcurrent(final Range other) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        //throw new UnsupportedOperationException("Method is not implemented yet");
+        return (this.rightB >= other.leftB) && (this.leftB <= other.rightB);
     }
 
     /**
      * Проверяет, находится ли переданный ряд в границах текущего.
      *
-     * @param value Ряд, предположительно находящийся в границах текущего.
-     * @return true, если левая граница переданного ряда больше левой границы текущего,
-     * а правая граница переданного ряда меньше правой границы текушего, иначе - false.
+     * @param value Число, предположительно находящийся в границах текущего.
+     * @return true, если переданое число больше левой границы и меньше правой
+     * иначе - false.
      */
     public boolean contains(final int value) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        //throw new UnsupportedOperationException("Method is not implemented yet");
+        return (this.leftB <= value) && (this.rightB >= value);
     }
 
     /**
@@ -104,7 +120,13 @@ public class Range {
      */
     public List<Integer> asList() {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        //throw new UnsupportedOperationException("Method is not implemented yet");
+        final int size = this.rightB - this.leftB +1;
+        final List<Integer> list = new ArrayList<>(size);
+        for(int i = this.leftB; i <= this.rightB; i++){
+            list.add(i);
+        }
+        return list;
     }
 
     /**
@@ -116,6 +138,7 @@ public class Range {
      */
     public Iterator<Integer> asIterator() {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        //throw new UnsupportedOperationException("Method is not implemented yet");
+        return this.asList().iterator();
     }
 }

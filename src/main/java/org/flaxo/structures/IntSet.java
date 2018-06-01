@@ -181,7 +181,6 @@ public class IntSet {
             }
         }
         return new IntSet(set);
-
     }
 
     /**

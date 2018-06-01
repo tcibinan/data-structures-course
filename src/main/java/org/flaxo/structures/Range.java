@@ -39,7 +39,7 @@ public class Range {
      * @return Значение левой границы ряда.
      */
     public int leftBound() {
-        return left;
+        return this.left;
     }
 
     /**
@@ -48,7 +48,7 @@ public class Range {
      * @return Значение правой границы ряда.
      */
     public int rightBound() {
-        return right;
+        return this.right;
     }
 
     /**

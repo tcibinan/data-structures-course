@@ -9,7 +9,7 @@ import java.util.List;
  * Левая и правая границы - включительны.
  */
 public class Range {
-    private int left, right;
+    private int left, right, length;
 
     private Range() {
     }
@@ -17,6 +17,7 @@ public class Range {
     public Range(int left, int right) {
         this.left = left;
         this.right = right;
+        length = right - left;
     }
 
     /**
@@ -81,7 +82,7 @@ public class Range {
      * @return true, если ряды пересекаются, иначе - false.
      */
     public boolean isConcurrent(final Range other) {
-        return (this.leftBound() - other.leftBound()) <
+        return !(this.isAfter(other) || this.isBefore(other));
     }
 
     /**
@@ -92,8 +93,7 @@ public class Range {
      * а правая граница переданного ряда меньше правой границы текушего, иначе - false.
      */
     public boolean contains(final int value) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return value > leftBound() && value < rightBound();
     }
 
     /**
@@ -104,8 +104,11 @@ public class Range {
      * @return Список чисел, входящих в ряд.
      */
     public List<Integer> asList() {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        List<Integer> list = new ArrayList<>();
+        for (int i = leftBound(); i <= rightBound(); i++) {
+            list.add(i);
+        }
+        return list;
     }
 
     /**
@@ -116,7 +119,8 @@ public class Range {
      * @return Итератор по числам, входящим в ряд
      */
     public Iterator<Integer> asIterator() {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        ArrayList<Integer> list = this.asList();
+        Iterator<Integer> iterator = list.iterator();
+        return iterator;
     }
 }

@@ -67,10 +67,7 @@ public class Range {
      */
     public boolean isBefore(final Range other)
     {
-        if (rightRange < other.leftBound())
-            return true;
-        else
-            return false;
+        return (rightRange < other.leftBound());
     }
 
     /**
@@ -82,10 +79,7 @@ public class Range {
      */
     public boolean isAfter(final Range other)
     {
-        if (leftRange > other.rightBound())
-            return true;
-        else
-            return false;
+        return (leftRange > other.rightBound());
     }
 
     /**
@@ -98,10 +92,7 @@ public class Range {
      */
     public boolean isConcurrent(final Range other)
     {
-        if (!other.isBefore(this) && !other.isAfter(this))
-            return true;
-        else
-            return false;
+        return !other.isBefore(this) && !other.isAfter(this);
     }
 
     /**
@@ -113,10 +104,7 @@ public class Range {
      */
     public boolean contains(final int value)
     {
-        if (!(rightBound() >= value && leftBound() <= value))
-            return false;
-        else
-            return true;
+        return (rightBound() >= value && leftBound() <= value);
     }
 
     /**

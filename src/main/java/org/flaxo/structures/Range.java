@@ -70,7 +70,7 @@ public class Range {
      * чем правая граница переданного, иначе - false.
      */
     public boolean isAfter(final Range other) {
-        return this.leftBound() < other.rightBound();
+        return this.leftBound() > other.rightBound();
     }
 
     /**

@@ -33,7 +33,6 @@ public class Range {
         // todo: Необходимо добавить реализацию метода
         return new Range(left,right);
     }
-
     /**
      * Возвращает значение левой границы ряда.
      *

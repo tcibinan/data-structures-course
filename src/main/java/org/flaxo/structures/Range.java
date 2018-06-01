@@ -12,6 +12,14 @@ public class Range {
         this.leftBound = leftBound;
         this.rightBound = rightBound;
     }
+    
+    public static Range between(final int left, final int right) {
+        if (left<=right) {
+            return new Range(left,right);
+        } else
+            throw new IllegalArgumentException("Left can't be more than right");
+    }
+    
     public Integer leftBound() {
         return leftBound;
     }

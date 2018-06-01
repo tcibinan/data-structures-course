@@ -113,7 +113,7 @@ public class Range {
      */
     public boolean contains(final int value)
     {
-        if ((rightBound() >= value && leftBound() <= value) == false)
+        if (!(rightBound() >= value && leftBound() <= value))
             return false;
         else
             return true;

@@ -1,11 +1,17 @@
 package org.flaxo.structures;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Структура данных - множество неотрицательных целых чисел.
  */
 public class IntSet {
+    private final Set<Integer> set;
 
-    private IntSet() {}
+    private IntSet() {
+        set=new HashSet<>();
+    }
 
     /**
      * Возвращает пустое множество.
@@ -14,7 +20,8 @@ public class IntSet {
      */
     public static IntSet empty() {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+       // throw new UnsupportedOperationException("Method is not implemented yet");
+        return new IntSet();
     }
 
     /**
@@ -25,7 +32,14 @@ public class IntSet {
      */
     public static IntSet of(final int... values) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        //throw new UnsupportedOperationException("Method is not implemented yet");
+        IntSet value=new IntSet();
+        for (int i:values){
+            if (i>=0){
+                value.add(i);
+            }
+        }
+        return value;
     }
 
     /**
@@ -35,7 +49,11 @@ public class IntSet {
      */
     public void add(final int value) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        //throw new UnsupportedOperationException("Method is not implemented yet");
+        if (value>=0){
+            this.set.add(value);
+        }
+
     }
 
     /**
@@ -45,7 +63,8 @@ public class IntSet {
      */
     public void remove(final int value) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+       // throw new UnsupportedOperationException("Method is not implemented yet");
+        set.remove(value);
     }
 
     /**
@@ -56,7 +75,8 @@ public class IntSet {
      */
     public boolean contains(final int value) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        //throw new UnsupportedOperationException("Method is not implemented yet");
+        return set.contains(value);
     }
 
     /**
@@ -66,7 +86,8 @@ public class IntSet {
      */
     public int size() {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        //throw new UnsupportedOperationException("Method is not implemented yet");
+        return set.size();
     }
 
     /**
@@ -80,7 +101,14 @@ public class IntSet {
      */
     public IntSet union(final IntSet other) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        //throw new UnsupportedOperationException("Method is not implemented yet");
+        for (int i:other.set){
+            if (!set.contains(i)){
+                set.add(i);
+            }
+
+        }
+        return this;
     }
 
     /**
@@ -94,7 +122,14 @@ public class IntSet {
      */
     public IntSet intersection(final IntSet other) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        //throw new UnsupportedOperationException("Method is not implemented yet");
+        IntSet tmp=new IntSet();
+        for (int i:other.set){
+            if (this.set.contains(i)&&other.set.contains(i)){
+                tmp.add(i);
+            }
+        }
+        return tmp;
     }
 
     /**
@@ -109,7 +144,19 @@ public class IntSet {
      */
     public IntSet difference(final IntSet other) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        //throw new UnsupportedOperationException("Method is not implemented yet");
+        IntSet tmp=new IntSet();
+        for (int i:other.set){
+            if(!this.set.contains(i)){
+                tmp.add(i);
+            }
+        }
+        for (int i:this.set){
+            if(!other.set.contains(i)){
+                tmp.add(i);
+            }
+        }
+        return tmp;
     }
 
     /**
@@ -123,7 +170,14 @@ public class IntSet {
      */
     public IntSet minus(final IntSet other) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        //throw new UnsupportedOperationException("Method is not implemented yet");
+        IntSet tmp=new IntSet();
+        for(int i:this.set){
+            if(!other.set.contains(i)){
+                tmp.add(i);
+            }
+        }
+        return  tmp;
     }
 
     /**
@@ -136,7 +190,16 @@ public class IntSet {
      */
     public boolean isSubsetOf(final IntSet other) {
         // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        //throw new UnsupportedOperationException("Method is not implemented yet");
+        int size=0;
+        for (int i:this.set){
+            if(other.set.contains(i)){
+                size++;
+            }
+        }
+        if (size==this.set.size()){
+            return true;
+        }else  return false;
     }
 
 }

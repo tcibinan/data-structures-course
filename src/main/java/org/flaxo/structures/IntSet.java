@@ -1,47 +1,70 @@
-package org.flaxo.structures;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class IntSet {
-    private List<Integer> list = new ArrayList<>();
+    private Set<Integer> set;
+
+    private IntSet() {
+        set = new HashSet<>();
+    }
+    
+    public static IntSet empty() {
+        return new IntSet();
+    }
+
+    public static IntSet of(final int... values) {
+        IntSet value=new IntSet();
+        for (int i:values){
+            if (i>=0){
+                value.add(i);
+            }
+        }
+        return value;
+    }
 
     public void add(int element) {
-        if (element < 0) return;
-        list.add(element);
+        if (element >= 0)
+            set.add(element);
     }
 
     public void remove(int element) {
-        if (element < 0) return;
-        list.remove((Integer) element);
+        set.remove((Integer) element);
     }
 
     public boolean contains(int element) {
-        return list.contains((Integer) element);
+        return set.contains((Integer) element);
     }
 
     public int size() {
-        return list.size();
+        return set.size();
     }
 
     public boolean isSubsetOf(IntSet another) {
-        return list.containsAll(another.list);
+        return set.containsAll(another.set);
     }
 
-    public void union(IntSet another) {
-        list.addAll(another.list);
+    public IntSet union(IntSet another) {
+        set.addAll(another.set);
+        return this;
     }
 
-    public void intersection(IntSet another) {
-        list.retainAll(another.list);
+    public IntSet intersection(IntSet another) {
+        set.retainAll(another.set);
+        return this;
     }
 
-    public void minus(IntSet another) {
-        list.removeAll(another.list);
+    public IntSet minus(IntSet another) {
+        set.removeAll(another.set);
+        return this;
     }
 
-    public void difference(IntSet another) {
-        list.removeAll(another.list);
+    public IntSet difference(IntSet another) {
+        for (int i : another.set) {
+            if (this.set.contains(i))
+                this.set.remove(i);
+            else
+                this.set.add(i);
+        }
+        return this;
     }
 }

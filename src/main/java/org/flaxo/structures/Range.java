@@ -103,7 +103,7 @@ public class Range {
      * @return true, если ряды пересекаются, иначе - false.
      */
     public boolean isConcurrent(final Range other) {
-        if (((other.right>=this.left)&&(other.right<=this.right))||
+        if (((this.left<=other.right)&&(other.right<=this.right))||
                 ((other.left>=this.left)&&(other.left<=this.right))){
             return true;
         }else return false;

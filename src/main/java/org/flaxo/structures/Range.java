@@ -1,5 +1,6 @@
 package org.flaxo.structures;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -10,7 +11,13 @@ import java.util.List;
  */
 public class Range {
 
-    private Range() {}
+    private final int lB;
+    private final int rB;
+
+    private Range(final int lB, final int rB) {
+        this.lB = lB;
+        this.rB = rB;
+    }
 
     /**
      * Возвращает ряд чисел между переданными левой и правой границами.
@@ -22,8 +29,10 @@ public class Range {
      * @return Ряд чисел между левой и правой границами включительно.
      */
     public static Range between(final int left, final int right) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        if (left > right) {
+            throw new IllegalArgumentException("Right bound doesn't exceed left bound");
+        }
+        return new Range(left, right);
     }
 
     /**
@@ -32,8 +41,7 @@ public class Range {
      * @return Значение левой границы ряда.
      */
     public int leftBound() {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return this.lB;
     }
 
     /**
@@ -42,8 +50,7 @@ public class Range {
      * @return Значение правой границы ряда.
      */
     public int rightBound() {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return this.rB;
     }
 
     /**
@@ -54,8 +61,7 @@ public class Range {
      * чем левая граница переданного, иначе - false.
      */
     public boolean isBefore(final Range other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return this.rB < other.lB;
     }
 
     /**
@@ -66,8 +72,7 @@ public class Range {
      * чем правая граница переданного, иначе - false.
      */
     public boolean isAfter(final Range other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return this.lB > other.rB;
     }
 
     /**
@@ -78,9 +83,9 @@ public class Range {
      * @param other Ряд, с которым необходимо проверить пересечение.
      * @return true, если ряды пересекаются, иначе - false.
      */
+
     public boolean isConcurrent(final Range other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return (this.lB <= other.rB && this.rB >= other.lB);
     }
 
     /**
@@ -90,10 +95,11 @@ public class Range {
      * @return true, если левая граница переданного ряда больше левой границы текущего,
      * а правая граница переданного ряда меньше правой границы текушего, иначе - false.
      */
+
     public boolean contains(final int value) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return (this.rB >= value && this.lB <= value);
     }
+
 
     /**
      * Возвращает список чисел ряда.
@@ -102,9 +108,17 @@ public class Range {
      *
      * @return Список чисел, входящих в ряд.
      */
+
     public List<Integer> asList() {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        final int SizeOfList = this.rB - this.lB + 1;
+        final List<Integer> list = new ArrayList<>(SizeOfList);
+
+        int i = this.lB;
+        while (i <= this.rB) {
+            list.add(i);
+            i++;
+        }
+        return list;
     }
 
     /**
@@ -114,8 +128,8 @@ public class Range {
      *
      * @return Итератор по числам, входящим в ряд
      */
+
     public Iterator<Integer> asIterator() {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return (this.asList().iterator());
     }
 }

@@ -102,7 +102,7 @@ public class Range {
      * а правая граница переданного ряда меньше правой границы текушего, иначе - false.
      */
     public boolean contains(final int value) {
-        if(value>this.leftBound() & value<this.rightB)
+        if(value>=this.leftBound() & value<=this.rightB)
             return true;
         else
             return false;

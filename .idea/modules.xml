@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/data-structures-course.iml" filepath="$PROJECT_DIR$/.idea/data-structures-course.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data-structures-course_main.iml" filepath="$PROJECT_DIR$/.idea/modules/data-structures-course_main.iml" group="data-structures-course" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data-structures-course_test.iml" filepath="$PROJECT_DIR$/.idea/modules/data-structures-course_test.iml" group="data-structures-course" />
+    </modules>
+  </component>
+</project>

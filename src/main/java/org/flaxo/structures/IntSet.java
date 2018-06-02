@@ -90,7 +90,8 @@ public class IntSet {
      * @return Множество, являющееся результатом объединения двух множеств.
      */
     public IntSet union(final IntSet other) {
-        return new IntSet(tree.addAll(other.getTree()));
+        tree.addAll(other.getTree());
+        return new IntSet(tree.clone());
     }
 
     /**
@@ -103,7 +104,8 @@ public class IntSet {
      * @return Множество, являющееся результатом пересечения двух множеств.
      */
     public IntSet intersection(final IntSet other) {
-        return new IntSet(tree.retainAll(other.getTree()));
+        tree.retainAll(other.getTree());
+        return new IntSet(tree.clone());
     }
 
     /**
@@ -118,7 +120,8 @@ public class IntSet {
      */
     public IntSet difference(final IntSet other) {
         TreeSet<Integer> cl = tree.clone();
-        return new IntSet(tree.removeAll(c1.retainAll(other.getTree())));
+        tree.removeAll(c1.retainAll(other.getTree()));
+        return new IntSet(tree.clone());
     }
 
     /**
@@ -131,7 +134,8 @@ public class IntSet {
      * @return Множество, являющееся результатом вычитания двух множеств.
      */
     public IntSet minus(final IntSet other) {
-        return new IntSet(tree.removeAll(other.getTree()));
+        tree.removeAll(other.getTree());
+        return new IntSet(tree.clone());
     }
 
     /**

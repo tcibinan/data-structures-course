@@ -30,7 +30,7 @@ public class Range {
      * @return Ряд чисел между левой и правой границами включительно.
      */
     public static Range between(final int left, final int right) {
-        if (left > right) throw new IllegalStateException();
+        if (left > right) throw new IllegalArgumentException();
         return new Range(left, right);
     }
 

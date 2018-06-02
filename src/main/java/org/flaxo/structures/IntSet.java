@@ -1,7 +1,7 @@
 package org.flaxo.structures;
 
 import java.util.HashSet;
-import java.util.Set;
+
 
 /**
  * Структура данных - множество неотрицательных целых чисел.

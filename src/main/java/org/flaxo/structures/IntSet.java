@@ -1,5 +1,8 @@
 package org.flaxo.structures;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Структура данных - множество неотрицательных целых чисел.
  */
@@ -102,10 +105,10 @@ public class IntSet {
      */
     public IntSet intersection(final IntSet other) {
         IntSet InTSet = new IntSet();
-        InSet.hset.addAll(this.hset);
-        InSet.hset.addAll(other.hset);
-        InSet.hset.retainAll(this.hset);
-        InSet.hset.retainAll(other.hset);
+        InTSet.hset.addAll(this.hset);
+        InTSet.hset.addAll(other.hset);
+        InTSet.hset.retainAll(this.hset);
+        InTSet.hset.retainAll(other.hset);
         return InTSet;
     }
 

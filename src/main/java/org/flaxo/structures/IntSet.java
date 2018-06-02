@@ -126,6 +126,7 @@ public class IntSet {
         TreeSet<Integer> tmp = new TreeSet<>();
         tmp.addAll(tree);
         tmp.retainAll(other.getTree());
+        tree.addAll(other.getTree());
         tree.removeAll(tmp);
         tmp = new TreeSet<>();
         tmp.addAll(tree);

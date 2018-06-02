@@ -123,8 +123,10 @@ public class IntSet {
      * только во втором множестве.
      */
     public IntSet difference(final IntSet other) {
-        TreeSet<Integer> cl = tree.clone();
         TreeSet<Integer> tmp = new TreeSet<>();
+        tmp.addAll(tree);
+        tree.removeAll(tmp.retainAll(other.getTree()));
+        tmp = new TreeSet<>();
         tmp.addAll(tree);
         return new IntSet(tmp);
     }

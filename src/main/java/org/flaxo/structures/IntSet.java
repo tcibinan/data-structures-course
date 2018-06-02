@@ -1,11 +1,16 @@
 package org.flaxo.structures;
 
+import java.util.HashSet;
+
 /**
  * Структура данных - множество неотрицательных целых чисел.
  */
 public class IntSet {
 
-    private IntSet() {}
+    private HashSet<Integer> guts;
+    private IntSet() {
+        this.guts = new HashSet<>();
+    }
 
     /**
      * Возвращает пустое множество.
@@ -13,8 +18,8 @@ public class IntSet {
      * @return Пустое множество.
      */
     public static IntSet empty() {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return new IntSet();
+        //throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
     /**
@@ -24,8 +29,12 @@ public class IntSet {
      * @return Множество переданных чисел.
      */
     public static IntSet of(final int... values) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        IntSet toReturn = new IntSet();
+        for(int element : values){
+            toReturn.guts.add(element);
+        }
+        return toReturn;
+        //throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
     /**
@@ -34,8 +43,8 @@ public class IntSet {
      * @param value Число, которое необходимо добавить во множество.
      */
     public void add(final int value) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        this.guts.add(value);
+        //throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
     /**
@@ -44,8 +53,8 @@ public class IntSet {
      * @param value Число, которое необходимо удалить из множества.
      */
     public void remove(final int value) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        this.guts.remove(value);
+        //throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
     /**
@@ -55,8 +64,8 @@ public class IntSet {
      * @return true если множество содержит значение, иначе - false.
      */
     public boolean contains(final int value) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return this.guts.contains(value);
+        //throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
     /**
@@ -65,8 +74,8 @@ public class IntSet {
      * @return Размер множества.
      */
     public int size() {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return this.guts.size();
+        //throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
     /**
@@ -79,8 +88,15 @@ public class IntSet {
      * @return Множество, являющееся результатом объединения двух множеств.
      */
     public IntSet union(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        IntSet toReturn = new IntSet();
+        for(Integer element : this.guts){
+            toReturn.guts.add(element);
+        }
+        for(Integer element : other.guts){
+            toReturn.guts.add(element);
+        }
+        return toReturn;
+        //throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
     /**
@@ -93,8 +109,14 @@ public class IntSet {
      * @return Множество, являющееся результатом пересечения двух множеств.
      */
     public IntSet intersection(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        IntSet toReturn = new IntSet();
+        for(Integer element : this.guts){
+            if(other.guts.contains(element)){
+                toReturn.guts.add(element);
+            }
+        }
+        return toReturn;
+        //throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
     /**
@@ -108,8 +130,19 @@ public class IntSet {
      * только во втором множестве.
      */
     public IntSet difference(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        IntSet toReturn = new IntSet();
+        for(Integer element : this.guts){
+            if(!other.guts.contains(element)){
+                toReturn.guts.add(element);
+            }
+        }
+        for(Integer element : other.guts){
+            if(!this.guts.contains(element)){
+                toReturn.guts.add(element);
+            }
+        }
+        return toReturn;
+        //throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
     /**
@@ -122,8 +155,14 @@ public class IntSet {
      * @return Множество, являющееся результатом вычитания двух множеств.
      */
     public IntSet minus(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        IntSet toReturn = new IntSet();
+        for(Integer element : this.guts){
+            if(!other.guts.contains(element)){
+                toReturn.guts.add(element);
+            }
+        }
+        return toReturn;
+        //throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
     /**
@@ -135,8 +174,13 @@ public class IntSet {
      * иначе - false
      */
     public boolean isSubsetOf(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        for(Integer element : this.guts){
+            if(!other.guts.contains(element)){
+                return false;
+            }
+        }
+        return true;
+        //throw new UnsupportedOperationException("Method is not implemented yet");
     }
 
 }

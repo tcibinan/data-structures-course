@@ -59,7 +59,7 @@ public class Range {
      * чем левая граница переданного, иначе - false.
      */
     public boolean isBefore(final Range other) {
-        if(other.rightBound()<=this.leftB)
+        if(other.leftBound()>=this.rightB)
             return true;
         else
             return false;

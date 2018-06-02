@@ -120,7 +120,7 @@ public class Range {
      * @return Итератор по числам, входящим в ряд
      */
     public Iterator<Integer> asIterator() {
-        ArrayList<Integer> list = this.asList();
+        List<Integer> list = this.asList();
         Iterator<Integer> iterator = list.iterator();
         return iterator;
     }

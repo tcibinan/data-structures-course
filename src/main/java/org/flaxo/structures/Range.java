@@ -2,6 +2,7 @@ package org.flaxo.structures;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Структура данных - ряд целых чисел.

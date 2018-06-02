@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Spek" tests="19" skipped="0" failures="2" errors="0" time="0.078" hostname="Zayci" timestamp="2018-06-02T00:26:48">
+<properties>
+<property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+<property name="file.encoding" value="windows-1251"/>
+<property name="file.encoding.pkg" value="sun.io"/>
+<property name="file.separator" value="\"/>
+<property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+<property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+<property name="java.class.path" value="C:\Users\Зайцы\Desktop\итмо\инфа\course\data-structures-course\build\classes\java\test;C:\Users\Зайцы\Desktop\итмо\инфа\course\data-structures-course\build\classes\kotlin\test;C:\Users\Зайцы\Desktop\итмо\инфа\course\data-structures-course\build\resources\test;C:\Users\Зайцы\Desktop\итмо\инфа\course\data-structures-course\build\classes\java\main;C:\Users\Зайцы\Desktop\итмо\инфа\course\data-structures-course\build\classes\kotlin\main;C:\Users\Зайцы\Desktop\итмо\инфа\course\data-structures-course\build\resources\main;C:\Users\Зайцы\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jre8\1.2.31\a6d5a64dcaff8ead0ec97dda29394a86858b7874\kotlin-stdlib-jre8-1.2.31.jar;C:\Users\Зайцы\.gradle\caches\modules-2\files-2.1\org.jetbrains.spek\spek-data-driven-extension\1.1.5\7e7ffbb8db6689c83d82c86857d7dbb92d7da70\spek-data-driven-extension-1.1.5.jar;C:\Users\Зайцы\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-test\1.2.31\b1f548194e03de3dc2a0f6c89bb375c6b3bf2294\kotlin-test-1.2.31.jar;C:\Users\Зайцы\.gradle\caches\modules-2\files-2.1\org.jetbrains.spek\spek-subject-extension\1.1.5\85189ba59c1f7a49f2ccc06f6c440363e0846a50\spek-subject-extension-1.1.5.jar;C:\Users\Зайцы\.gradle\caches\modules-2\files-2.1\org.jetbrains.spek\spek-junit-platform-engine\1.1.5\84bbc6c2b61230b5921458b87332672d08fdc1e3\spek-junit-platform-engine-1.1.5.jar;C:\Users\Зайцы\.gradle\caches\modules-2\files-2.1\org.jetbrains.spek\spek-api\1.1.5\bc19a88a54bb18edc9dd64d79b42f32b3215f1ca\spek-api-1.1.5.jar;C:\Users\Зайцы\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jre7\1.2.31\98678431965f7487d6dc9b399e59b6c4b3921073\kotlin-stdlib-jre7-1.2.31.jar;C:\Users\Зайцы\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-reflect\1.0.6\3d499d3b7768f88c4796e5a1e357933e11a8936d\kotlin-reflect-1.0.6.jar;C:\Users\Зайцы\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib\1.2.31\153dcd9ed9db246a7e36f4d7609e2a9f4718c674\kotlin-stdlib-1.2.31.jar;C:\Users\Зайцы\.gradle\caches\modules-2\files-2.1\org.jetbrains\annotations\13.0\919f0dfe192fb4e063e7dacadee7f8bb9a2672a9\annotations-13.0.jar;C:\Users\Зайцы\.gradle\caches\modules-2\files-2.1\org.junit.platform\junit-platform-console\1.0.3\39e2d8697f3244a16f9fafd58ad871918cb5a722\junit-platform-console-1.0.3.jar;C:\Users\Зайцы\.gradle\caches\modules-2\files-2.1\org.junit.platform\junit-platform-launcher\1.0.3\91d799c70c3a597631883b77117046e09d6a4419\junit-platform-launcher-1.0.3.jar;C:\Users\Зайцы\.gradle\caches\modules-2\files-2.1\org.junit.platform\junit-platform-engine\1.0.3\7028a17adabd876b6d7530e43523a7f4fd109e18\junit-platform-engine-1.0.3.jar;C:\Users\Зайцы\.gradle\caches\modules-2\files-2.1\org.junit.platform\junit-platform-commons\1.0.3\3663f3ddfe47df2a7bf363d5c0196f0c7a09820f\junit-platform-commons-1.0.3.jar;C:\Users\Зайцы\.gradle\caches\modules-2\files-2.1\org.apiguardian\apiguardian-api\1.0.0\3ef5276905e36f4d8055fe3cb0bdcc7503ffc85d\apiguardian-api-1.0.0.jar;C:\Users\Зайцы\.gradle\caches\modules-2\files-2.1\org.opentest4j\opentest4j\1.0.0\6f09c598e9ff64bf0ce2fa7e7de49a99ba83c0b4\opentest4j-1.0.0.jar"/>
+<property name="java.class.version" value="52.0"/>
+<property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_121\jre\lib\endorsed"/>
+<property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_121\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+<property name="java.home" value="C:\Program Files\Java\jdk1.8.0_121\jre"/>
+<property name="java.io.tmpdir" value="C:\Users\4C33~1\AppData\Local\Temp\"/>
+<property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_121\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\NVIDIA Corporation\PhysX\Common;C:\ProgramData\Oracle\Java\javapath;C:\Users\Зайцы\AppData\Local\Programs\Python\Python35-32;C:\Program Files\Skype\Phone\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Program Files\Git\cmd;C:\Python;C:\All\apache-maven-3.3.9-bin\bin;."/>
+<property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+<property name="java.runtime.version" value="1.8.0_121-b13"/>
+<property name="java.specification.name" value="Java Platform API Specification"/>
+<property name="java.specification.vendor" value="Oracle Corporation"/>
+<property name="java.specification.version" value="1.8"/>
+<property name="java.vendor" value="Oracle Corporation"/>
+<property name="java.vendor.url" value="http://java.oracle.com/"/>
+<property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+<property name="java.version" value="1.8.0_121"/>
+<property name="java.vm.info" value="mixed mode"/>
+<property name="java.vm.name" value="Java HotSpot(TM) Client VM"/>
+<property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+<property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+<property name="java.vm.specification.version" value="1.8"/>
+<property name="java.vm.vendor" value="Oracle Corporation"/>
+<property name="java.vm.version" value="25.121-b13"/>
+<property name="line.separator" value="
+"/>
+<property name="os.arch" value="x86"/>
+<property name="os.name" value="Windows 7"/>
+<property name="os.version" value="6.1"/>
+<property name="path.separator" value=";"/>
+<property name="sun.arch.data.model" value="32"/>
+<property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_121\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_121\jre\classes"/>
+<property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_121\jre\bin"/>
+<property name="sun.cpu.endian" value="little"/>
+<property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86"/>
+<property name="sun.desktop" value="windows"/>
+<property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+<property name="sun.java.command" value="org.junit.platform.console.ConsoleLauncher --details NONE --scan-class-path C:\Users\Зайцы\Desktop\итмо\инфа\course\data-structures-course\build\classes\java\main;C:\Users\Зайцы\Desktop\итмо\инфа\course\data-structures-course\build\classes\kotlin\main;C:\Users\Зайцы\Desktop\итмо\инфа\course\data-structures-course\build\resources\main;C:\Users\Зайцы\Desktop\итмо\инфа\course\data-structures-course\build\classes\java\test;C:\Users\Зайцы\Desktop\итмо\инфа\course\data-structures-course\build\classes\kotlin\test;C:\Users\Зайцы\Desktop\итмо\инфа\course\data-structures-course\build\resources\test -n ^.*Tests?$ --reports-dir C:\Users\Зайцы\Desktop\итмо\инфа\course\data-structures-course\build\test-results\junit-platform"/>
+<property name="sun.java.launcher" value="SUN_STANDARD"/>
+<property name="sun.jnu.encoding" value="Cp1251"/>
+<property name="sun.management.compiler" value="HotSpot Client Compiler"/>
+<property name="sun.os.patch.level" value="Service Pack 1"/>
+<property name="user.country" value="RU"/>
+<property name="user.dir" value="C:\Users\Зайцы\Desktop\итмо\инфа\course\data-structures-course"/>
+<property name="user.home" value="C:\Users\Зайцы"/>
+<property name="user.language" value="ru"/>
+<property name="user.name" value="Зайцы"/>
+<property name="user.script" value=""/>
+<property name="user.timezone" value="Europe/Moscow"/>
+<property name="user.variant" value=""/>
+</properties>
+<testcase name="it should create range that contains all elements from lower bound to upper bound" classname="org.flaxo.structures.RangeSpec" time="0.015">
+<system-out><![CDATA[
+unique-id: [engine:spek]/[spec:org.flaxo.structures.RangeSpec]/[group:describe range]/[group:on creating range where left bound is lower than right bound]/[test:it should create range that contains all elements from lower bound to upper bound]
+display-name: it should create range that contains all elements from lower bound to upper bound
+]]></system-out>
+</testcase>
+<testcase name="it should throw IllegalArgumentException if a lower bound is greater than an upper bound" classname="org.flaxo.structures.RangeSpec" time="0.016">
+<failure message="[20, 10] should not be valid. Expected an exception of class java.lang.IllegalArgumentException to be thrown, but was completed successfully." type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: [20, 10] should not be valid. Expected an exception of class java.lang.IllegalArgumentException to be thrown, but was completed successfully.
+	at kotlin.test.DefaultAsserter.fail(DefaultAsserter.kt:12)
+	at kotlin.test.AssertionsKt__AssertionsImplKt.assertFailsWithImpl$AssertionsKt__AssertionsImplKt(AssertionsImpl.kt:41)
+	at kotlin.test.AssertionsKt__AssertionsImplKt.assertFailsWith(AssertionsImpl.kt:46)
+	at kotlin.test.AssertionsKt.assertFailsWith(Unknown Source)
+	at org.flaxo.structures.RangeSpec$1$1$2$1.invoke(RangeSpec.kt:31)
+	at org.flaxo.structures.RangeSpec$1$1$2$1.invoke(RangeSpec.kt:12)
+	at org.jetbrains.spek.engine.Scope$Test.execute(Scope.kt:102)
+	at org.jetbrains.spek.engine.Scope$Test.execute(Scope.kt:80)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.lambda$execute$3(HierarchicalTestExecutor.java:83)
+	at org.junit.platform.engine.support.hierarchical.SingleTestExecutor.executeSafely(SingleTestExecutor.java:66)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:77)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.lambda$null$2(HierarchicalTestExecutor.java:92)
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:175)
+	at java.util.Iterator.forEachRemaining(Iterator.java:116)
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.lambda$execute$3(HierarchicalTestExecutor.java:92)
+	at org.junit.platform.engine.support.hierarchical.SingleTestExecutor.executeSafely(SingleTestExecutor.java:66)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:77)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.lambda$null$2(HierarchicalTestExecutor.java:92)
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:175)
+	at java.util.Iterator.forEachRemaining(Iterator.java:116)
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.lambda$execute$3(HierarchicalTestExecutor.java:92)
+	at org.junit.platform.engine.support.hierarchical.SingleTestExecutor.executeSafely(SingleTestExecutor.java:66)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:77)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.lambda$null$2(HierarchicalTestExecutor.java:92)
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:175)
+	at java.util.Iterator.forEachRemaining(Iterator.java:116)
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.lambda$execute$3(HierarchicalTestExecutor.java:92)
+	at org.junit.platform.engine.support.hierarchical.SingleTestExecutor.executeSafely(SingleTestExecutor.java:66)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:77)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.lambda$null$2(HierarchicalTestExecutor.java:92)
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:175)
+	at java.util.Iterator.forEachRemaining(Iterator.java:116)
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.lambda$execute$3(HierarchicalTestExecutor.java:92)
+	at org.junit.platform.engine.support.hierarchical.SingleTestExecutor.executeSafely(SingleTestExecutor.java:66)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:77)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:51)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:43)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90)
+	at org.junit.platform.console.tasks.ConsoleTestExecutor.executeTests(ConsoleTestExecutor.java:65)
+	at org.junit.platform.console.tasks.ConsoleTestExecutor.lambda$execute$0(ConsoleTestExecutor.java:57)
+	at org.junit.platform.console.tasks.CustomContextClassLoaderExecutor.invoke(CustomContextClassLoaderExecutor.java:33)
+	at org.junit.platform.console.tasks.ConsoleTestExecutor.execute(ConsoleTestExecutor.java:57)
+	at org.junit.platform.console.ConsoleLauncher.executeTests(ConsoleLauncher.java:84)
+	at org.junit.platform.console.ConsoleLauncher.execute(ConsoleLauncher.java:74)
+	at org.junit.platform.console.ConsoleLauncher.execute(ConsoleLauncher.java:47)
+	at org.junit.platform.console.ConsoleLauncher.main(ConsoleLauncher.java:39)
+]]></failure>
+<system-out><![CDATA[
+unique-id: [engine:spek]/[spec:org.flaxo.structures.RangeSpec]/[group:describe range]/[group:on creating range where left bound is greater than right bound]/[test:it should throw IllegalArgumentException if a lower bound is greater than an upper bound]
+display-name: it should throw IllegalArgumentException if a lower bound is greater than an upper bound
+]]></system-out>
+</testcase>
+<testcase name="it should create range that contains single element" classname="org.flaxo.structures.RangeSpec" time="0">
+<system-out><![CDATA[
+unique-id: [engine:spek]/[spec:org.flaxo.structures.RangeSpec]/[group:describe range]/[group:on creating range where left bound equals to right bound]/[test:it should create range that contains single element]
+display-name: it should create range that contains single element
+]]></system-out>
+</testcase>
+<testcase name="it should return range with Integer.MIN_VALUE and Integer.MAX_VALUE bounds" classname="org.flaxo.structures.RangeSpec" time="0">
+<system-out><![CDATA[
+unique-id: [engine:spek]/[spec:org.flaxo.structures.RangeSpec]/[group:describe range]/[group:on creating range where bound is Integer.MIN_VALUE and Integer.MAX_VALUE]/[test:it should return range with Integer.MIN_VALUE and Integer.MAX_VALUE bounds]
+display-name: it should return range with Integer.MIN_VALUE and Integer.MAX_VALUE bounds
+]]></system-out>
+</testcase>
+<testcase name="it should return range that contains all possible integer value" classname="org.flaxo.structures.RangeSpec" time="0">
+<system-out><![CDATA[
+unique-id: [engine:spek]/[spec:org.flaxo.structures.RangeSpec]/[group:describe range]/[group:on creating range where bound is Integer.MIN_VALUE and Integer.MAX_VALUE]/[test:it should return range that contains all possible integer value]
+display-name: it should return range that contains all possible integer value
+]]></system-out>
+</testcase>
+<testcase name="it should contain it" classname="org.flaxo.structures.RangeSpec" time="0">
+<system-out><![CDATA[
+unique-id: [engine:spek]/[spec:org.flaxo.structures.RangeSpec]/[group:describe range]/[group:on checking if range contains its left bound]/[test:it should contain it]
+display-name: it should contain it
+]]></system-out>
+</testcase>
+<testcase name="it should contain it" classname="org.flaxo.structures.RangeSpec" time="0">
+<system-out><![CDATA[
+unique-id: [engine:spek]/[spec:org.flaxo.structures.RangeSpec]/[group:describe range]/[group:on checking if range contains its right bound]/[test:it should contain it]
+display-name: it should contain it
+]]></system-out>
+</testcase>
+<testcase name="it should not contain it" classname="org.flaxo.structures.RangeSpec" time="0">
+<failure message="[20, 30] should not contain 10" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: [20, 30] should not contain 10
+	at kotlin.test.DefaultAsserter.fail(DefaultAsserter.kt:12)
+	at kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:157)
+	at kotlin.test.DefaultAsserter.assertTrue(DefaultAsserter.kt:7)
+	at kotlin.test.Asserter$DefaultImpls.assertTrue(Assertions.kt:167)
+	at kotlin.test.DefaultAsserter.assertTrue(DefaultAsserter.kt:7)
+	at kotlin.test.AssertionsKt__AssertionsKt.assertFalse(Assertions.kt:54)
+	at kotlin.test.AssertionsKt.assertFalse(Unknown Source)
+	at kotlin.test.AssertionsKt__AssertionsKt.assertFalse(Assertions.kt:49)
+	at kotlin.test.AssertionsKt.assertFalse(Unknown Source)
+	at org.flaxo.structures.RangeSpec$1$1$7$1.invoke(RangeSpec.kt:86)
+	at org.flaxo.structures.RangeSpec$1$1$7$1.invoke(RangeSpec.kt:12)
+	at org.jetbrains.spek.engine.Scope$Test.execute(Scope.kt:102)
+	at org.jetbrains.spek.engine.Scope$Test.execute(Scope.kt:80)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.lambda$execute$3(HierarchicalTestExecutor.java:83)
+	at org.junit.platform.engine.support.hierarchical.SingleTestExecutor.executeSafely(SingleTestExecutor.java:66)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:77)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.lambda$null$2(HierarchicalTestExecutor.java:92)
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:175)
+	at java.util.Iterator.forEachRemaining(Iterator.java:116)
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.lambda$execute$3(HierarchicalTestExecutor.java:92)
+	at org.junit.platform.engine.support.hierarchical.SingleTestExecutor.executeSafely(SingleTestExecutor.java:66)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:77)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.lambda$null$2(HierarchicalTestExecutor.java:92)
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:175)
+	at java.util.Iterator.forEachRemaining(Iterator.java:116)
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.lambda$execute$3(HierarchicalTestExecutor.java:92)
+	at org.junit.platform.engine.support.hierarchical.SingleTestExecutor.executeSafely(SingleTestExecutor.java:66)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:77)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.lambda$null$2(HierarchicalTestExecutor.java:92)
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:175)
+	at java.util.Iterator.forEachRemaining(Iterator.java:116)
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.lambda$execute$3(HierarchicalTestExecutor.java:92)
+	at org.junit.platform.engine.support.hierarchical.SingleTestExecutor.executeSafely(SingleTestExecutor.java:66)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:77)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.lambda$null$2(HierarchicalTestExecutor.java:92)
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:175)
+	at java.util.Iterator.forEachRemaining(Iterator.java:116)
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.lambda$execute$3(HierarchicalTestExecutor.java:92)
+	at org.junit.platform.engine.support.hierarchical.SingleTestExecutor.executeSafely(SingleTestExecutor.java:66)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:77)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:51)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:43)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90)
+	at org.junit.platform.console.tasks.ConsoleTestExecutor.executeTests(ConsoleTestExecutor.java:65)
+	at org.junit.platform.console.tasks.ConsoleTestExecutor.lambda$execute$0(ConsoleTestExecutor.java:57)
+	at org.junit.platform.console.tasks.CustomContextClassLoaderExecutor.invoke(CustomContextClassLoaderExecutor.java:33)
+	at org.junit.platform.console.tasks.ConsoleTestExecutor.execute(ConsoleTestExecutor.java:57)
+	at org.junit.platform.console.ConsoleLauncher.executeTests(ConsoleLauncher.java:84)
+	at org.junit.platform.console.ConsoleLauncher.execute(ConsoleLauncher.java:74)
+	at org.junit.platform.console.ConsoleLauncher.execute(ConsoleLauncher.java:47)
+	at org.junit.platform.console.ConsoleLauncher.main(ConsoleLauncher.java:39)
+]]></failure>
+<system-out><![CDATA[
+unique-id: [engine:spek]/[spec:org.flaxo.structures.RangeSpec]/[group:describe range]/[group:on checking if range contains element that is out of bounds]/[test:it should not contain it]
+display-name: it should not contain it
+]]></system-out>
+</testcase>
+<testcase name="it should be before range if right bound of the range is lower than left bound of another range" classname="org.flaxo.structures.RangeSpec" time="0">
+<system-out><![CDATA[
+unique-id: [engine:spek]/[spec:org.flaxo.structures.RangeSpec]/[group:describe range]/[group:on checking if range is before another range]/[test:it should be before range if right bound of the range is lower than left bound of another range]
+display-name: it should be before range if right bound of the range is lower than left bound of another range
+]]></system-out>
+</testcase>
+<testcase name="it should not be before range if right bound of the range equals to left bound of another range" classname="org.flaxo.structures.RangeSpec" time="0">
+<system-out><![CDATA[
+unique-id: [engine:spek]/[spec:org.flaxo.structures.RangeSpec]/[group:describe range]/[group:on checking if range is before another range]/[test:it should not be before range if right bound of the range equals to left bound of another range]
+display-name: it should not be before range if right bound of the range equals to left bound of another range
+]]></system-out>
+</testcase>
+<testcase name="it should not be before range if right bound of the range is higher than left bound of another range" classname="org.flaxo.structures.RangeSpec" time="0">
+<system-out><![CDATA[
+unique-id: [engine:spek]/[spec:org.flaxo.structures.RangeSpec]/[group:describe range]/[group:on checking if range is before another range]/[test:it should not be before range if right bound of the range is higher than left bound of another range]
+display-name: it should not be before range if right bound of the range is higher than left bound of another range
+]]></system-out>
+</testcase>
+<testcase name="it should be after range if left bound of the range is greater than right bound of another range" classname="org.flaxo.structures.RangeSpec" time="0">
+<system-out><![CDATA[
+unique-id: [engine:spek]/[spec:org.flaxo.structures.RangeSpec]/[group:describe range]/[group:on checking if range is after another range]/[test:it should be after range if left bound of the range is greater than right bound of another range]
+display-name: it should be after range if left bound of the range is greater than right bound of another range
+]]></system-out>
+</testcase>
+<testcase name="it should not be after range if left bound of the range equals to right bound of another range" classname="org.flaxo.structures.RangeSpec" time="0">
+<system-out><![CDATA[
+unique-id: [engine:spek]/[spec:org.flaxo.structures.RangeSpec]/[group:describe range]/[group:on checking if range is after another range]/[test:it should not be after range if left bound of the range equals to right bound of another range]
+display-name: it should not be after range if left bound of the range equals to right bound of another range
+]]></system-out>
+</testcase>
+<testcase name="it should not be after range if left bound of the range is lower than right bound of another range" classname="org.flaxo.structures.RangeSpec" time="0">
+<system-out><![CDATA[
+unique-id: [engine:spek]/[spec:org.flaxo.structures.RangeSpec]/[group:describe range]/[group:on checking if range is after another range]/[test:it should not be after range if left bound of the range is lower than right bound of another range]
+display-name: it should not be after range if left bound of the range is lower than right bound of another range
+]]></system-out>
+</testcase>
+<testcase name="it should be concurrent with range if ranges have overlapping elements" classname="org.flaxo.structures.RangeSpec" time="0">
+<system-out><![CDATA[
+unique-id: [engine:spek]/[spec:org.flaxo.structures.RangeSpec]/[group:describe range]/[group:on checking if range is concurrent with another range]/[test:it should be concurrent with range if ranges have overlapping elements]
+display-name: it should be concurrent with range if ranges have overlapping elements
+]]></system-out>
+</testcase>
+<testcase name="it should be concurrent with itself" classname="org.flaxo.structures.RangeSpec" time="0">
+<system-out><![CDATA[
+unique-id: [engine:spek]/[spec:org.flaxo.structures.RangeSpec]/[group:describe range]/[group:on checking if range is concurrent with another range]/[test:it should be concurrent with itself]
+display-name: it should be concurrent with itself
+]]></system-out>
+</testcase>
+<testcase name="it should not be concurrent with range if ranges have no overlapping elements" classname="org.flaxo.structures.RangeSpec" time="0">
+<system-out><![CDATA[
+unique-id: [engine:spek]/[spec:org.flaxo.structures.RangeSpec]/[group:describe range]/[group:on checking if range is concurrent with another range]/[test:it should not be concurrent with range if ranges have no overlapping elements]
+display-name: it should not be concurrent with range if ranges have no overlapping elements
+]]></system-out>
+</testcase>
+<testcase name="it should return a list that contains each element from left bound to right bound" classname="org.flaxo.structures.RangeSpec" time="0">
+<system-out><![CDATA[
+unique-id: [engine:spek]/[spec:org.flaxo.structures.RangeSpec]/[group:describe range]/[group:on getting range as a list]/[test:it should return a list that contains each element from left bound to right bound]
+display-name: it should return a list that contains each element from left bound to right bound
+]]></system-out>
+</testcase>
+<testcase name="it should return iterator for each element from left bound to right bound" classname="org.flaxo.structures.RangeSpec" time="0.031">
+<system-out><![CDATA[
+unique-id: [engine:spek]/[spec:org.flaxo.structures.RangeSpec]/[group:describe range]/[group:on getting an iterator]/[test:it should return iterator for each element from left bound to right bound]
+display-name: it should return iterator for each element from left bound to right bound
+]]></system-out>
+</testcase>
+<system-out><![CDATA[
+unique-id: [engine:spek]
+display-name: Spek
+]]></system-out>
+</testsuite>

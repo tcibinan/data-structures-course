@@ -68,7 +68,12 @@ public class IntSet {
      */
     public void remove(final int value) {
         if (size - 1 >= 0) {
-            set[--size] = value;
+            for (int i = 0; i < size; i++) {
+                if (set[i] == value) {
+                    set[i] = set[--size];
+                    break;
+                }
+            }
             if (size <= set.length / 2) {
                 resize(set.length / 2);
             }

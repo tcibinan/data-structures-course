@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * Левая и правая границы - включительны.
  */
 public class Range {
-    private int left, right, length;
+    private int left, right;
 
     private Range() {
     }
@@ -18,7 +18,6 @@ public class Range {
     public Range(int left, int right) {
         this.left = left;
         this.right = right;
-        length = right - left;
     }
 
     /**
@@ -31,6 +30,7 @@ public class Range {
      * @return Ряд чисел между левой и правой границами включительно.
      */
     public static Range between(final int left, final int right) {
+        if (left > right) throw new IllegalStateException();
         return new Range(left, right);
     }
 
@@ -94,7 +94,7 @@ public class Range {
      * а правая граница переданного ряда меньше правой границы текушего, иначе - false.
      */
     public boolean contains(final int value) {
-        return value > leftBound() && value < rightBound();
+        return value >= leftBound() && value <= rightBound();
     }
 
     /**

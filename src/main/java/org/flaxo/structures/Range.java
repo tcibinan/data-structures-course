@@ -14,8 +14,8 @@ public class Range {
     private int rightB;
     private Range() {}
     private Range(int leftB, int rightB){
-        this.leftB=leftB;
-        this.rightB=rightB;
+            this.leftB = leftB;
+            this.rightB = rightB;
     }
     /**
      * Возвращает ряд чисел между переданными левой и правой границами.
@@ -27,7 +27,7 @@ public class Range {
      * @return Ряд чисел между левой и правой границами включительно.
      */
     public static Range between(final int left, final int right) {
-        if(left<right)
+        if(left<=right)
             return new Range(left, right);
         else
             throw new IllegalArgumentException("left must be < right");

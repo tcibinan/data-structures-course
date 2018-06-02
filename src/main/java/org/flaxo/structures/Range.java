@@ -59,7 +59,7 @@ public class Range {
      * чем левая граница переданного, иначе - false.
      */
     public boolean isBefore(final Range other) {
-        if(other.rightBound()<this.leftB)
+        if(other.rightBound()<=this.leftB)
             return true;
         else
             return false;
@@ -73,7 +73,7 @@ public class Range {
      * чем правая граница переданного, иначе - false.
      */
     public boolean isAfter(final Range other) {
-        if(other.leftBound()>this.rightB)
+        if(other.leftBound()>=this.rightB)
             return true;
         else
             return false;

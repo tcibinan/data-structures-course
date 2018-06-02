@@ -125,7 +125,7 @@ public class IntSet {
     public IntSet difference(final IntSet other) {
         TreeSet<Integer> tmp = new TreeSet<>();
         tmp.addAll(tree);
-        tmp.retainAll(other.getTree())
+        tmp.retainAll(other.getTree());
         tree.removeAll(tmp);
         tmp = new TreeSet<>();
         tmp.addAll(tree);

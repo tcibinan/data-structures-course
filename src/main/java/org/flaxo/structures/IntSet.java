@@ -1,75 +1,86 @@
 package org.flaxo.structures;
 
-import java.util.Iterator;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class IntSet {
-    private Set<Integer> intSet;
+    private Set<Integer> set;
 
     private IntSet() {
-        intSet = new TreeSet<>();
+        set=new TreeSet<>();
     }
 
     public static IntSet empty() {
         return new IntSet();
     }
-
-    public static IntSet of(final int... values) {
-        IntSet set = new IntSet();
-        for (int i : values) set.add(i);
-        return set;
+ static IntSet of(final int... values) {
+        IntSet intSet=new IntSet();
+        for(int i:values){
+            if(i>=0)
+                intSet.add(i);
+        }
+        return intSet;
     }
 
     public void add(final int value) {
-        intSet.add(value);
+        if(value>=0)
+            this.set.add(value);
     }
 
     public void remove(final int value) {
-        intSet.remove(value);
+        this.set.remove(value);
     }
 
     public boolean contains(final int value) {
-        return intSet.contains(value);
+        if(this.set.contains(value))
+            return true;
+        else
+            return false;
     }
 
     public int size() {
-        return intSet.size();
+        return set.size();
     }
 
     public IntSet union(final IntSet other) {
-        IntSet set = new IntSet();
-        set.intSet.addAll(this.intSet);
-        set.intSet.addAll(other.intSet);
-        return set;
+        IntSet newSet=new IntSet();
+        newSet.set.addAll(this.set);
+        newSet.set.addAll(other.set);
+
+        return newSet;
     }
 
     public IntSet intersection(final IntSet other) {
-        IntSet set = new IntSet();
-        Iterator<Integer> otherIterator = other.intSet.iterator();
-        while (otherIterator.hasNext()) {
-            int value = otherIterator.next();
-            if (this.contains(value)) set.add(value);
-        }
-        return set;
+        IntSet newSet=new IntSet();
+
+        newSet.set.addAll(this.set);
+        newSet.set.addAll(other.set);
+        newSet.set.retainAll(this.set);
+        newSet.set.retainAll(other.set);
+        return newSet;
     }
 
     public IntSet difference(final IntSet other) {
-        IntSet unionSet = this.union(other);
-        IntSet intersectionSet = this.intersection(other);
-        return unionSet.minus(intersectionSet);
+        IntSet newSet=this.union(other);
+        IntSet dopSet=this.intersection(other);
+        newSet.set.removeAll(dopSet.set);
+        return newSet;
     }
 
     public IntSet minus(final IntSet other) {
-        IntSet set = this;
-        set.intSet.removeAll(other.intSet);
-        return set;
+        IntSet newSet=this;
+        newSet.set.removeAll(other.set);
+        return newSet;
     }
 
     public boolean isSubsetOf(final IntSet other) {
-        IntSet set = this.union(other);
-        int size = Math.max(this.size(), other.size());
-        return size == set.size();
+        boolean flag=true;
+        for(int i:this.set){
+            if(!other.set.contains(i)){
+                flag=false;
+                break;
+            }
+        }
+        return flag;
     }
 
 }

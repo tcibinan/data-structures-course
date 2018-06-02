@@ -91,7 +91,9 @@ public class IntSet {
      */
     public IntSet union(final IntSet other) {
         tree.addAll(other.getTree());
-        return new IntSet(tree.clone());
+        TreeSet<Integer> tmp = new TreeSet<>();
+        tmp.addAll(tree);
+        return new IntSet(tmp);
     }
 
     /**
@@ -105,7 +107,9 @@ public class IntSet {
      */
     public IntSet intersection(final IntSet other) {
         tree.retainAll(other.getTree());
-        return new IntSet(tree.clone());
+        TreeSet<Integer> tmp = new TreeSet<>();
+        tmp.addAll(tree);
+        return new IntSet(tmp);
     }
 
     /**
@@ -120,8 +124,9 @@ public class IntSet {
      */
     public IntSet difference(final IntSet other) {
         TreeSet<Integer> cl = tree.clone();
-        tree.removeAll(c1.retainAll(other.getTree()));
-        return new IntSet(tree.clone());
+        TreeSet<Integer> tmp = new TreeSet<>();
+        tmp.addAll(tree);
+        return new IntSet(tmp);
     }
 
     /**
@@ -135,7 +140,9 @@ public class IntSet {
      */
     public IntSet minus(final IntSet other) {
         tree.removeAll(other.getTree());
-        return new IntSet(tree.clone());
+        TreeSet<Integer> tmp = new TreeSet<>();
+        tmp.addAll(tree);
+        return new IntSet(tmp);
     }
 
     /**

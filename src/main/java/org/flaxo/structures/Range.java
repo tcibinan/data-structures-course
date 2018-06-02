@@ -23,7 +23,6 @@ import java.util.List;
             return new Range(left, right);
         }
 
-
         public int leftBound() {
 
             return left;

@@ -25,6 +25,7 @@ public class Range {
      * @return Ряд чисел между левой и правой границами включительно.
      */
     public static Range between(final int left, final int right) {
+        if (left > right) throw new IllegalArgumentException("The left border is greater than the right");
         return new Range(left, right);
     }
 

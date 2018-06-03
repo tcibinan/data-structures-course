@@ -1,11 +1,13 @@
-package org.flaxo.structures;
-
 /**
  * Структура данных - множество неотрицательных целых чисел.
  */
 public class IntSet {
 
-    private IntSet() {}
+    private int size = 0;
+    private int set[] = new int[10];
+
+    private IntSet() {
+    }
 
     /**
      * Возвращает пустое множество.
@@ -13,8 +15,7 @@ public class IntSet {
      * @return Пустое множество.
      */
     public static IntSet empty() {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return new IntSet();
     }
 
     /**
@@ -24,8 +25,11 @@ public class IntSet {
      * @return Множество переданных чисел.
      */
     public static IntSet of(final int... values) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        IntSet newSet = new IntSet();
+        for (int i : values) {
+            newSet.add(i);
+        }
+        return newSet;
     }
 
     /**
@@ -34,8 +38,27 @@ public class IntSet {
      * @param value Число, которое необходимо добавить во множество.
      */
     public void add(final int value) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        if (!contains(value)) {
+            if (size + 1 <= set.length) {
+                set[size] = value;
+                size++;
+            } else {
+                resize(set.length * 2);
+                set[size] = value;
+                size++;
+            }
+        }
+    }
+
+    /**
+     * Изменяет размер массива
+     *
+     * @param newSize новый размер
+     */
+    private void resize(int newSize) {
+        int[] newSet = new int[newSize];
+        System.arraycopy(set, 0, newSet, 0, size);
+        set = newSet;
     }
 
     /**
@@ -44,8 +67,17 @@ public class IntSet {
      * @param value Число, которое необходимо удалить из множества.
      */
     public void remove(final int value) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        if (size - 1 >= 0) {
+            for (int i = 0; i < size; i++) {
+                if (set[i] == value) {
+                    set[i] = set[--size];
+                    break;
+                }
+            }
+            if (size <= set.length / 2) {
+                resize(set.length / 2);
+            }
+        }
     }
 
     /**
@@ -55,8 +87,10 @@ public class IntSet {
      * @return true если множество содержит значение, иначе - false.
      */
     public boolean contains(final int value) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        for (int i : set) {
+            if (i == value) return true;
+        }
+        return false;
     }
 
     /**
@@ -65,42 +99,50 @@ public class IntSet {
      * @return Размер множества.
      */
     public int size() {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return size;
     }
 
     /**
      * Возвращает множество всех элементов текущего
      * и переданного множеств.
-     *
+     * <p>
      * Операция объединения множеств.
      *
      * @param other Множество, с которым необходимо провести операцию объединения.
      * @return Множество, являющееся результатом объединения двух множеств.
      */
     public IntSet union(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        IntSet union = new IntSet();
+        union.size = size + other.size;
+        union.set = new int[size + other.size];
+        System.arraycopy(set, 0, union.set, 0, size);
+        System.arraycopy(other.set, 0, union.set, size, other.size);
+        return union;
     }
 
     /**
      * Возвращает множество общих элементов текущего
      * и переданного множеств.
-     *
+     * <p>
      * Операция пересечения множеств.
      *
      * @param other Множество, с которым необходимо провести операцию пересечения.
      * @return Множество, являющееся результатом пересечения двух множеств.
      */
     public IntSet intersection(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        IntSet intersection = new IntSet();
+        for (int i : set) {
+            for (int j : other.set) {
+                if (i == j) intersection.add(i);
+            }
+        }
+        return intersection;
     }
 
     /**
      * Возвращает множество уникальных элементов текущего
      * и переданного множеств.
-     *
+     * <p>
      * Операция исключающего ИЛИ над множествами.
      *
      * @param other Множество, с которым необходимо провести данную операцию.
@@ -108,22 +150,46 @@ public class IntSet {
      * только во втором множестве.
      */
     public IntSet difference(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        IntSet difference = new IntSet();
+        difference.size = size;
+        System.arraycopy(set, 0, difference.set, 0, size);
+        for (int i : difference.set) {
+            for (int j : other.set) {
+                if (i == j) difference.remove(i);
+            }
+        }
+
+        IntSet second = new IntSet();
+        second.size = other.size;
+        System.arraycopy(other.set, 0, second.set, 0, size);
+        for (int i : second.set) {
+            for (int j : set) {
+                if (i == j) second.remove(i);
+            }
+        }
+
+        return union(difference.union(second));
     }
 
     /**
      * Возвращает множество элементов текущего множества,
      * которых нет в переданном множестве.
-     *
+     * <p>
      * Операция вычитания множеств.
      *
      * @param other Множество, которое необходимо вычесть из текущего.
      * @return Множество, являющееся результатом вычитания двух множеств.
      */
     public IntSet minus(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        IntSet minus = new IntSet();
+        minus.size = size;
+        System.arraycopy(set, 0, minus.set, 0, size);
+        for (int i : minus.set) {
+            for (int j : other.set) {
+                if (i == j) minus.remove(i);
+            }
+        }
+        return minus;
     }
 
     /**
@@ -135,8 +201,10 @@ public class IntSet {
      * иначе - false
      */
     public boolean isSubsetOf(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        for (int i : set) {
+            if (!other.contains(i)) return false;
+        }
+        return true;
     }
 
 }

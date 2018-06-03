@@ -201,8 +201,8 @@ public class IntSet {
      * иначе - false
      */
     public boolean isSubsetOf(final IntSet other) {
-        for (int i : other.set) {
-            if (!contains(i)) return false;
+        for (int i : set) {
+            if (!other.contains(i)) return false;
         }
         return true;
     }

@@ -1,142 +1,91 @@
 package org.flaxo.structures;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Структура данных - множество неотрицательных целых чисел.
  */
+
 public class IntSet {
 
-    private IntSet() {}
+    private Set<Integer> hashSet;
 
-    /**
-     * Возвращает пустое множество.
-     *
-     * @return Пустое множество.
-     */
+    private IntSet() {
+        this.hashSet = new HashSet<>();
+    }
+    private IntSet(Set<Integer> set) {
+        this.hashSet = set;
+    }
+
     public static IntSet empty() {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return new IntSet();
     }
 
-    /**
-     * Возвращает множество переданных чисел.
-     *
-     * @param values Числа, из которых будет состоять множество.
-     * @return Множество переданных чисел.
-     */
-    public static IntSet of(final int... values) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
-    }
-
-    /**
-     * Добавляет число ко множеству.
-     *
-     * @param value Число, которое необходимо добавить во множество.
-     */
     public void add(final int value) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        this.hashSet.add(value);
     }
 
-    /**
-     * Удаляет число из множества.
-     *
-     * @param value Число, которое необходимо удалить из множества.
-     */
+    public static IntSet of(final int... values) {
+        IntSet set = new IntSet();
+        for (int i : values) {
+            set.hashSet.add(i);
+        }
+        return set;
+    }
+
     public void remove(final int value) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        this.hashSet.remove(value);
     }
 
-    /**
-     * Проверяет, содержится ли значение во множестве.
-     *
-     * @param value Число, наличие которого во множестве необходимо проверить.
-     * @return true если множество содержит значение, иначе - false.
-     */
     public boolean contains(final int value) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return this.hashSet.contains(value);
     }
 
-    /**
-     * Возвращает размер множества.
-     *
-     * @return Размер множества.
-     */
+
     public int size() {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return this.hashSet.size();
     }
 
-    /**
-     * Возвращает множество всех элементов текущего
-     * и переданного множеств.
-     *
-     * Операция объединения множеств.
-     *
-     * @param other Множество, с которым необходимо провести операцию объединения.
-     * @return Множество, являющееся результатом объединения двух множеств.
-     */
-    public IntSet union(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+    public IntSet union(final IntSet test) {
+        IntSet InSet = new IntSet();
+
+        InSet.hashSet.addAll(this.hashSet);
+        InSet.hashSet.addAll(test.hashSet);
+        return InSet;
     }
 
-    /**
-     * Возвращает множество общих элементов текущего
-     * и переданного множеств.
-     *
-     * Операция пересечения множеств.
-     *
-     * @param other Множество, с которым необходимо провести операцию пересечения.
-     * @return Множество, являющееся результатом пересечения двух множеств.
-     */
-    public IntSet intersection(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+    public IntSet intersection(final IntSet test) {
+        IntSet InSet = new IntSet();
+
+        InSet.hashSet.addAll(this.hashSet);
+        InSet.hashSet.addAll(test.hashSet);
+
+        InSet.hashSet.retainAll(this.hashSet);
+        InSet.hashSet.retainAll(test.hashSet);
+        return InSet;
     }
 
-    /**
-     * Возвращает множество уникальных элементов текущего
-     * и переданного множеств.
-     *
-     * Операция исключающего ИЛИ над множествами.
-     *
-     * @param other Множество, с которым необходимо провести данную операцию.
-     * @return Множество, элементы содержащиеся либо только в первом, либо
-     * только во втором множестве.
-     */
-    public IntSet difference(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+    public IntSet difference(final IntSet test) {
+
+        IntSet Set = this.union(test);
+        IntSet SecondSet = this.intersection(test);
+
+        return Set.minus(SecondSet);
     }
 
-    /**
-     * Возвращает множество элементов текущего множества,
-     * которых нет в переданном множестве.
-     *
-     * Операция вычитания множеств.
-     *
-     * @param other Множество, которое необходимо вычесть из текущего.
-     * @return Множество, являющееся результатом вычитания двух множеств.
-     */
     public IntSet minus(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        IntSet Set = this.union(other);
+
+        IntSet SecondSet = this.intersection(other);
+        Set.hashSet.removeAll(SecondSet.hashSet);
+
+        return Set;
+
     }
 
-    /**
-     * Проверяет, является ли текущее множество подмножеством переданного.
-     *
-     * @param other Множество, для которого необходимо проверить, входит ли в
-     *              него текущее множество
-     * @return true, если текущее множество, является подмножеством переданного,
-     * иначе - false
-     */
     public boolean isSubsetOf(final IntSet other) {
-        // todo: Необходимо добавить реализацию метода
-        throw new UnsupportedOperationException("Method is not implemented yet");
+        return other.hashSet.containsAll(this.hashSet);
     }
 
 }
